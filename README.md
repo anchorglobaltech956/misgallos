@@ -1,24 +1,16 @@
-# Three Roots Animal Nutrition — GitHub Pages
+# Three Roots Animal Nutrition — Self-Contained GitHub Pages Package
 
-This package contains the complete bilingual English/Spanish landing page.
+This corrected package prevents missing photographs by embedding every logo, feed photograph, rooster image, and video directly inside `index.html`.
 
-## Publish on GitHub Pages
+## Replace the GitHub Pages files
 
-1. Create a new GitHub repository.
-2. Extract this ZIP file.
-3. Upload every extracted file and folder to the repository root. `index.html` must stay at the top level.
-4. Commit the files to the `main` branch.
-5. Open **Settings → Pages** in the repository.
-6. Under **Build and deployment**, select **Deploy from a branch**.
-7. Choose **main**, select **/(root)**, and click **Save**.
+1. Extract this ZIP file.
+2. Open your GitHub repository.
+3. Remove the older website files, or overwrite the old `index.html`.
+4. Upload the new `index.html` to the top level of the repository.
+5. Upload this `README.md` if desired.
+6. Select **Commit changes**.
+7. Wait one or two minutes, then refresh the website.
 
-GitHub will show the website address after deployment. It normally follows this format:
-
-`https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`
-
-## Important
-
-- Keep the `assets` folder beside `index.html`.
-- Do not upload only `index.html`; the photographs, videos, logo, and product images are stored in `assets`.
-- Replace contact or nutrition information in `index.html` and `app.js` when updates are approved.
+Only `index.html` is required for the website. There is no separate `assets` folder to lose or place incorrectly.
 
