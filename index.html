@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Private bilingual prototype for The Three Roots Animal Nutrition Company in Weslaco, Texas." />
+    <meta name="theme-color" content="#071d18" />
+    <title>The Three Roots Animal Nutrition Company</title>
+    <link rel="preload" href="assets/hero-old-english-game.webp" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Three Roots home">
+        <img class="header-company-logo" src="assets/brand/three-roots-transparent-logo.png" alt="Official Three Roots Animal Nutrition company logo" />
+        <span class="brand-value"><em>Quality &amp; Value</em><b>YOU CAN SEE</b><small>FAMILY BUILT. EXPERIENCE GROWN</small></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only" data-i18n="menu">Open menu</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#formulas" data-i18n="navFormula">Formulas</a>
+        <a href="#breeds" data-i18n="navBreeds">Breed gallery</a>
+        <a href="#quote" data-i18n="navQuote">Request a quote</a>
+      </nav>
+
+      <button class="language-toggle" type="button" aria-label="Cambiar a español">
+        <span class="lang-active">EN</span><span aria-hidden="true">/</span><span>ES</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-old-english-game.webp">
+          <source src="assets/hero-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-content shell">
+          <p class="eyebrow" data-i18n="heroEyebrow">Premium rooster nutrition · Weslaco, Texas</p>
+          <h1 id="hero-title" data-i18n="heroTitle">Feed the condition.<br /><em>Show the difference.</em></h1>
+          <p class="hero-copy" data-i18n="heroCopy">Clean, colorful feed concepts created for serious breeders and lawful exhibition programs—from the Rio Grande Valley to Latin America.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#quote" data-i18n="heroCta">Request a quote</a>
+            <a class="button button-ghost" href="#breeds" data-i18n="heroExplore">Explore the birds</a>
+          </div>
+          <div class="hero-trust" role="list" aria-label="Product priorities">
+            <span role="listitem"><b>01</b><span data-i18n="trust1">Health supported</span></span>
+            <span role="listitem"><b>02</b><span data-i18n="trust2">Energy supplied</span></span>
+            <span role="listitem"><b>03</b><span data-i18n="trust3">Natural character revealed</span></span>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#formulas" aria-label="Scroll to formulas"><span></span></a>
+      </section>
+
+      <section class="world" id="formulas" aria-labelledby="formula-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow dark" data-i18n="formulaEyebrow">Real feeds. Visible ingredients. Verified label values.</p>
+            <h2 id="formula-title" data-i18n="formulaTitle">Color you can see. Condition built one feeding at a time.</h2>
+            <p data-i18n="formulaIntro">Explore the Three Roots rooster line through restored product photography and the nutrition values printed on the supplied product sheets.</p>
+          </div>
+
+          <div class="catalog-toolbar reveal">
+            <div>
+              <p class="catalog-kicker" data-i18n="catalogKicker">16 ROOSTER FORMULAS FROM YOUR SUPPLIED MATERIALS</p>
+              <p data-i18n="catalogHint">Filter the lineup, then select any blend to compare its restored feed photo and listed analysis.</p>
+            </div>
+            <div class="catalog-filters" role="group" aria-label="Filter feed catalog" data-i18n-aria-label="filterAria">
+              <button class="catalog-filter active" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All formulas</button>
+              <button class="catalog-filter" type="button" data-filter="conditioner" aria-pressed="false" data-i18n="filterConditioners">Conditioners</button>
+              <button class="catalog-filter" type="button" data-filter="maintenance" aria-pressed="false" data-i18n="filterMaintenance">Maintenance</button>
+              <button class="catalog-filter" type="button" data-filter="performance" aria-pressed="false" data-i18n="filterPerformance">Performance & growth</button>
+              <button class="catalog-filter" type="button" data-filter="scratch" aria-pressed="false" data-i18n="filterScratch">Grain & scratch</button>
+            </div>
+          </div>
+          <p class="catalog-status reveal" id="catalog-status" aria-live="polite">Showing all 16 formulas</p>
+
+          <div class="feed-selector reveal" id="feed-selector" role="tablist" aria-label="Three Roots feed catalog" data-i18n-aria-label="catalogAria">
+            <button class="feed-tab active" id="tab-mad" role="tab" aria-selected="true" aria-controls="feed-panel" tabindex="0" data-product="mad">
+              <img src="assets/feeds/mad-rooster.webp" alt="" /><span><small>Signature</small><strong>MAD ROOSTER</strong></span>
+            </button>
+          </div>
+
+          <div class="feed-feature reveal" id="feed-panel" aria-live="polite">
+            <div class="feed-visual">
+              <img id="feed-image" src="assets/feeds/mad-rooster.webp" alt="Mad Rooster colorful grain and pellet feed blend" />
+              <div class="photo-seal">
+                <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m10 21 6 6 14-15" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span><strong data-i18n="realFeedPhoto">REAL FEED PHOTO</strong><small data-i18n="glareRestored">Glare-restored for clarity</small></span>
+              </div>
+              <span class="feed-number" id="feed-number">01 / 16</span>
+            </div>
+
+            <div class="feed-story">
+              <p class="product-number" id="feed-category">SIGNATURE ROOSTER BLEND</p>
+              <h3 id="feed-name">Mad Rooster</h3>
+              <p class="feed-tagline" id="feed-tagline">The colorful signature blend for birds with presence.</p>
+              <p class="feed-description" id="feed-description">A varied mix of grains, roasted soybeans, peas, oats, sunflower, and pellets. Developed for a substantial feeding presentation with the listed protein and fat needed for a carefully managed conditioning program.</p>
+
+              <div class="nutrition-card">
+                <div class="nutrition-head">
+                  <span><small data-i18n="labelTitle">ANIMAL NUTRITION LABEL</small><strong data-i18n="labelAnalysis">Listed analysis</strong></span>
+                  <b id="feed-weight-wrap"><span id="feed-weight">50</span> <small id="feed-weight-unit" data-i18n="pounds">LBS</small></b>
+                </div>
+                <div class="nutrition-stats">
+                  <div><span data-i18n="protein">Protein</span><strong id="feed-protein">16.0%</strong></div>
+                  <div><span data-i18n="fat">Fat</span><strong id="feed-fat">6.0%</strong></div>
+                  <div><span data-i18n="fiber">Fiber</span><strong id="feed-fiber">6.0%</strong></div>
+                </div>
+                <div class="ingredient-copy">
+                  <span data-i18n="ingredients">Ingredients</span>
+                  <p id="feed-ingredients">Cracked corn, sorghum, wheat, black oil sunflower, roasted soybeans, oats, green peas, popcorn, and pellets.</p>
+                </div>
+              </div>
+
+              <div class="feature-chips" id="product-chips"><span>Colorful variety</span><span>Condition-focused</span><span>Visible ingredients</span></div>
+              <div class="feed-actions">
+                <a class="button button-primary" href="#quote" data-i18n="askAvailability">Ask about availability</a>
+                <button class="text-button nutrition-button" type="button" data-i18n="openLabel">Open full label</button>
+              </div>
+              <p class="prototype-note" data-i18n="prototypeNote">Values transcribed from the supplied product sheet. Verify the final regulatory label and feeding directions before public launch.</p>
+            </div>
+          </div>
+
+          <div class="ingredient-ribbon reveal">
+            <div class="ingredient-title"><p class="eyebrow dark" data-i18n="ingredientEyebrow">RECOGNIZABLE INGREDIENTS</p><h3 data-i18n="ingredientTitle">Nothing generic about the way it looks.</h3></div>
+            <figure><img src="assets/feeds/whole-corn.webp" alt="Glare-restored close-up of whole yellow corn" loading="lazy" /><figcaption data-i18n="corn">Golden corn</figcaption></figure>
+            <figure><img src="assets/feeds/split-green-peas.webp" alt="Glare-restored close-up of split green peas" loading="lazy" /><figcaption data-i18n="peas">Split green peas</figcaption></figure>
+            <figure><img src="assets/feeds/roasted-soybeans.webp" alt="Glare-restored close-up of roasted soybeans" loading="lazy" /><figcaption data-i18n="soybeans">Roasted soybeans</figcaption></figure>
+          </div>
+
+          <aside class="other-line reveal" aria-labelledby="all-stock-title">
+            <figure>
+              <img src="assets/feeds/all-stock-sweet.webp" alt="Glare-restored close-up of All Stock Sweet 14% feed" loading="lazy" />
+              <figcaption data-i18n="broaderLine">BROADER ANIMAL NUTRITION LINE</figcaption>
+            </figure>
+            <div class="other-line-copy">
+              <p class="eyebrow dark" data-i18n="otherEyebrow">ALSO IN THE SUPPLIED COLLECTION</p>
+              <h3 id="all-stock-title">All Stock Sweet 14%</h3>
+              <p data-i18n="otherText">A general-stock blend that broadens the Three Roots line beyond the rooster catalog, with a short, recognizable ingredient list.</p>
+              <div class="other-stats" aria-label="Listed analysis">
+                <span><small data-i18n="protein">Protein</small><b>14.0%</b></span>
+                <span><small data-i18n="fat">Fat</small><b>6.0%</b></span>
+                <span><small data-i18n="fiber">Fiber</small><b>11.0%</b></span>
+              </div>
+              <p class="other-ingredients"><strong data-i18n="ingredients">Ingredients</strong><span data-i18n="otherIngredients">Ground corn, oats, ground roasted soybean, protein pellets, and molasses.</span></p>
+              <p class="other-note" data-i18n="otherNote">Shown separately from the rooster formulas. Confirm species-specific suitability and feeding directions before use.</p>
+            </div>
+          </aside>
+
+          <div class="quality-strip brochure-promises reveal" aria-label="Quality priorities">
+            <article><span class="quality-icon">✦</span><div><small>01 · HEALTH</small><h3 data-i18n="quality1Title">Nutrition that supports health</h3><p data-i18n="quality1Text">Clean, recognizable ingredients and clearly listed formula values support informed feeding choices at every stage.</p></div></article>
+            <article><span class="quality-icon">⚡</span><div><small>02 · ENERGY</small><h3 data-i18n="quality2Title">Fuel for daily energy</h3><p data-i18n="quality2Text">Grain-rich blends offer energy-dense choices for active birds within a consistent, well-managed program.</p></div></article>
+            <article><span class="quality-icon">◆</span><div><small>03 · CHARACTER</small><h3 data-i18n="quality3Title">Let natural personality show</h3><p data-i18n="quality3Text">Feed does not create character; good care and nutrition support the alert posture, condition, and confidence that let it shine.</p></div></article>
+          </div>
+
+          <div class="breed-zone" id="breeds">
+            <div class="breed-intro reveal">
+              <div>
+                <p class="eyebrow dark" data-i18n="breedEyebrow">Heritage across borders</p>
+                <h2 data-i18n="breedTitle">Ten champion profiles. One visible standard.</h2>
+              </div>
+              <p data-i18n="breedIntro">Select a profile to explore the lean lines, alert posture, clean feathering, and confident presence that define our exhibition-condition goal.</p>
+            </div>
+
+            <div class="motion-card reveal">
+              <video autoplay muted loop playsinline poster="assets/cubalaya-cuba.webp">
+                <source src="assets/heritage-breeds-motion.mp4" type="video/mp4" />
+              </video>
+              <div class="motion-copy">
+                <span class="live-dot"><i></i><span data-i18n="motionLabel">Motion portrait</span></span>
+                <h3 data-i18n="motionTitle">Condition you can see.</h3>
+                <p data-i18n="motionText">Lean lines, alert posture, clean feathering, and confident presence—visual cues that speak to serious rooster enthusiasts.</p>
+              </div>
+            </div>
+
+            <div class="condition-proof reveal">
+              <span>PROOF OF QUALITY · PRUEBA DE CALIDAD</span>
+              <p data-i18n="conditionProof">The product proof is in the real feed photography, visible ingredients, and supplied label values above. These champion profiles show the healthy exhibition condition that careful nutrition and husbandry are designed to support.</p>
+            </div>
+
+            <div class="breed-grid">
+              <button class="breed-card reveal" type="button" data-breed="indio"><img src="assets/champion-gallery/indio-gigante-brazil.webp" alt="Breed-inspired Brazilian giant rooster on a fazenda" loading="lazy" /><span class="country">BRAZIL · BRASIL</span><span class="breed-name">Índio Gigante</span><span class="breed-detail" data-i18n="breedIndioTag">Exceptional height · Athletic frame</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="araucana"><img src="assets/champion-gallery/araucana-chile-golden.webp" alt="Breed-inspired golden Araucana rooster in Chile" loading="lazy" /><span class="country">CHILE</span><span class="breed-name">Araucana</span><span class="breed-detail" data-i18n="breedAraucanaTag">Golden plumage · Distinctive profile</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="aseel"><img src="assets/champion-gallery/aseel-wheaten.webp" alt="Breed-inspired wheaten Aseel rooster at a ranch" loading="lazy" /><span class="country">SOUTH ASIAN HERITAGE</span><span class="breed-name">Wheaten Aseel</span><span class="breed-detail" data-i18n="breedAseelTag">Upright stance · Powerful presence</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="shamo"><img src="assets/champion-gallery/shamo-black.webp" alt="Breed-inspired glossy black Shamo rooster" loading="lazy" /><span class="country">JAPANESE HERITAGE</span><span class="breed-name">Black Shamo</span><span class="breed-detail" data-i18n="breedShamoTag">Tall carriage · Glossy feathering</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="spanish"><img src="assets/champion-gallery/spanish-heritage.webp" alt="Breed-inspired Spanish heritage rooster in Andalusia" loading="lazy" /><span class="country">SPAIN · ESPAÑA</span><span class="breed-name">Spanish Heritage</span><span class="breed-detail" data-i18n="breedSpanishTag">Lean lines · Mediterranean carriage</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="moderngame"><img src="assets/champion-gallery/modern-game-birchen.webp" alt="Breed-inspired birchen Modern Game rooster" loading="lazy" /><span class="country">BRITISH HERITAGE</span><span class="breed-name">Birchen Modern Game</span><span class="breed-detail" data-i18n="breedModernTag">Long legs · Refined silhouette</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="redblack"><img src="assets/champion-gallery/show-rooster-red-black.webp" alt="Red-and-black exhibition rooster at sunrise" loading="lazy" /><span class="country">EXHIBITION PROFILE</span><span class="breed-name">Red &amp; Black Show</span><span class="breed-detail" data-i18n="breedRedTag">Alert posture · Sunrise brilliance</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="brahma"><img src="assets/champion-gallery/brahma-light.webp" alt="Breed-inspired Light Brahma exhibition rooster" loading="lazy" /><span class="country">HERITAGE SHOW BREED</span><span class="breed-name">Light Brahma</span><span class="breed-detail" data-i18n="breedBrahmaTag">Full feathering · Calm stature</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="plymouth"><img src="assets/champion-gallery/plymouth-rock-barred.webp" alt="Breed-inspired Barred Plymouth Rock rooster on a ranch" loading="lazy" /><span class="country">AMERICAN HERITAGE</span><span class="breed-name">Barred Plymouth Rock</span><span class="breed-detail" data-i18n="breedPlymouthTag">Crisp barring · Balanced build</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+              <button class="breed-card reveal" type="button" data-breed="leghorn"><img src="assets/champion-gallery/leghorn-white.webp" alt="Breed-inspired prize White Leghorn rooster" loading="lazy" /><span class="country">ITALIAN HERITAGE</span><span class="breed-name">White Leghorn</span><span class="breed-detail" data-i18n="breedLeghornTag">Bright white finish · Alert character</span><span class="view-link" data-i18n="viewProfile">View profile →</span></button>
+            </div>
+            <p class="visual-disclosure" data-i18n="visualDisclosure">Client-supplied, breed-inspired rooster visuals illustrate an exhibition standard; they are not documented customer results or a guarantee of outcome. Feed photographs were restored from client-supplied images.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section" id="quote" aria-labelledby="quote-title">
+        <div class="quote-glow" aria-hidden="true"></div>
+        <div class="shell quote-layout">
+          <div class="quote-copy reveal">
+            <p class="eyebrow" data-i18n="quoteEyebrow">Built in Weslaco. Ready to grow.</p>
+            <h2 id="quote-title" data-i18n="quoteTitle">Tell us what your birds need.</h2>
+            <p data-i18n="quoteIntro">Request pricing, availability, or the right Three Roots product for your feeding program. This prototype form does not send data until your real contact method is connected.</p>
+
+            <div class="content-placeholders">
+              <article class="complete"><span>✓</span><div><strong data-i18n="placeholder1Title">Real feed photography added</strong><small data-i18n="placeholder1Text">Glare-restored grain, pea, soybean, and formula close-ups.</small></div></article>
+              <article class="complete"><span>✓</span><div><strong data-i18n="placeholder2Title">Nutrition values added</strong><small data-i18n="placeholder2Text">Product-sheet protein, fat, fiber, weight, and ingredients.</small></div></article>
+              <article class="complete"><span>✓</span><div><strong data-i18n="placeholder3Title">Business contacts added</strong><small data-i18n="placeholder3Text">Two direct contacts, Weslaco address, QR code, and social channel access.</small></div></article>
+            </div>
+
+            <div class="contact-hub">
+              <div class="contact-hub-head">
+                <span data-i18n="contactLabel">DIRECT CONTACTS</span>
+                <p><a href="https://maps.google.com/?q=1702+S+International+Blvd+Weslaco+TX+78596" target="_blank" rel="noopener">1702 S. International Blvd.<br />Weslaco, TX 78596</a></p>
+              </div>
+              <div class="contact-cards">
+                <article>
+                  <small data-i18n="contactTeam">THREE ROOTS TEAM</small><h3>Rene Izaguirre</h3>
+                  <a href="tel:+19565208606">956-520-8606</a><a href="tel:+19563307735">956-330-7735</a><a href="mailto:rene@threeroots.net">rene@threeroots.net</a>
+                </article>
+                <article>
+                  <small data-i18n="contactTeam">THREE ROOTS TEAM</small><h3>Octavio Garcia</h3>
+                  <a href="tel:+19565208606">956-520-8606</a><a href="tel:+19562796207">956-279-6207</a><a href="mailto:tavo@threeroots.net">tavo@threeroots.net</a><a href="mailto:tavo@garballc.com">tavo@garballc.com</a>
+                </article>
+              </div>
+              <div class="social-connect">
+                <div class="qr-wrap"><img src="assets/brand/contact-qr.webp" alt="Three Roots website and social media QR code" loading="lazy" /><span data-i18n="scanConnect">Scan to connect</span></div>
+                <div class="social-widget-wrap"><p data-i18n="socialHeading">Website & social channels</p><div class="social-widgets" aria-label="Social media channels"><span aria-label="Facebook"><b>f</b>Facebook</span><span aria-label="Instagram"><b>◎</b>Instagram</span><span aria-label="TikTok"><b>♪</b>TikTok</span><span aria-label="YouTube"><b>▶</b>YouTube</span></div><small data-i18n="socialNote">Use the QR code to open the current links. Direct profile URLs can be connected here when provided.</small></div>
+              </div>
+            </div>
+          </div>
+
+          <form class="quote-form reveal" novalidate>
+            <div class="form-header">
+              <span data-i18n="formStep">QUOTE REQUEST</span>
+              <strong data-i18n="formFast">Fast. Simple. Bilingual.</strong>
+            </div>
+            <label><span data-i18n="nameLabel">Your name</span><input type="text" name="name" autocomplete="name" required placeholder="Name / Nombre" /></label>
+            <label><span data-i18n="contactInputLabel">Phone or email</span><input type="text" name="contact" required placeholder="(956) 000-0000" /></label>
+            <label><span data-i18n="interestLabel">I'm interested in</span>
+              <select name="interest" id="interest-select">
+                <option value="mad">Mad Rooster</option>
+                <option value="dealer" data-i18n="dealerOption">Dealer or bulk pricing</option>
+              </select>
+            </label>
+            <label><span data-i18n="messageLabel">What would you like to know?</span><textarea name="message" rows="4" data-i18n-placeholder="messagePlaceholder" placeholder="Tell us about your birds, quantity, or location."></textarea></label>
+            <button class="button button-primary submit-button" type="submit" data-i18n="submitQuote">Request my quote</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <footer class="site-footer shell">
+          <div><img class="footer-logo" src="assets/brand/three-roots-logo.webp" alt="Three Roots Animal Nutrition" /><span>1702 S. INTERNATIONAL BLVD. · WESLACO, TEXAS 78596</span></div>
+          <p data-i18n="footerNote">Private concept prototype · Product claims and contact details pending client approval.</p>
+        </footer>
+      </section>
+    </main>
+
+    <dialog class="breed-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <img id="dialog-image" src="" alt="" />
+      <div class="dialog-copy">
+        <span id="dialog-country" class="country"></span>
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-text"></p>
+        <div class="dialog-traits" id="dialog-traits"></div>
+        <button class="button button-primary dialog-quote" type="button" data-i18n="dialogCta">Ask about the right formula</button>
+      </div>
+    </dialog>
+
+    <dialog class="spec-dialog" aria-labelledby="spec-dialog-title">
+      <button class="dialog-close spec-close" type="button" aria-label="Close">×</button>
+      <div class="spec-dialog-content">
+        <p class="eyebrow dark" data-i18n="specModalEyebrow">SUPPLIED PRODUCT-SHEET VALUES</p>
+        <h2 id="spec-dialog-title">Mad Rooster</h2>
+        <div class="spec-table" aria-label="Nutrition specifications">
+          <span data-i18n="protein">Protein</span><b id="modal-protein">16.0%</b>
+          <span data-i18n="fat">Fat</span><b id="modal-fat">6.0%</b>
+          <span data-i18n="fiber">Fiber</span><b id="modal-fiber">6.0%</b>
+          <span data-i18n="weight">Weight</span><b id="modal-weight">50 LBS</b>
+        </div>
+        <div class="modal-ingredients"><strong data-i18n="ingredients">Ingredients</strong><p id="modal-ingredients"></p></div>
+        <p data-i18n="specModalText">Transcribed from the supplied product sheet. Confirm the final guaranteed analysis, regulatory label, and feeding directions before public sale.</p>
+      </div>
+    </dialog>
+  </body>
+</html>
