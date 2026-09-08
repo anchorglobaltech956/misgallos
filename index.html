@@ -76,9 +76,11 @@ a { color: inherit; }
 .site-nav a { position: relative; text-decoration: none; font-size: .83rem; font-weight: 750; letter-spacing: .04em; }
 .site-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: var(--gold); transition: right .25s ease; }
 .site-nav a:hover::after, .site-nav a:focus-visible::after { right: 0; }
-.language-toggle { grid-column: 3; grid-row: 1; justify-self: end; background: white; color: var(--forest-deep); border: 1px solid rgba(12,46,34,.28); border-radius: 999px; padding: 8px 12px; display: flex; gap: 6px; cursor: pointer; font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
-.language-toggle span:not(.lang-active) { opacity: .55; }
-.language-toggle .lang-active { color: var(--gold); }
+.language-toggle { grid-column: 3; grid-row: 1; justify-self: end; min-height: 52px; background: white; color: var(--forest-deep); border: 1px solid rgba(12,46,34,.3); border-radius: 999px; padding: 5px; display: flex; align-items: center; gap: 3px; cursor: pointer; font-size: .9rem; font-weight: 850; letter-spacing: .015em; box-shadow: 0 6px 18px rgba(7,29,24,.11); transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.language-toggle:hover { transform: translateY(-1px); border-color: rgba(12,46,34,.5); box-shadow: 0 9px 22px rgba(7,29,24,.15); }
+.language-toggle:focus-visible { outline: 3px solid rgba(242,184,75,.55); outline-offset: 3px; }
+.language-toggle .lang-option { padding: 8px 13px; border-radius: 999px; opacity: .58; white-space: nowrap; transition: color .2s ease, background .2s ease, opacity .2s ease; }
+.language-toggle .lang-active { color: #162018; background: var(--gold); opacity: 1; }
 .menu-toggle { display: none; border: 0; background: transparent; padding: 7px; }
 .menu-toggle > span:not(.sr-only) { display: block; width: 24px; height: 2px; margin: 5px; background: var(--forest-deep); transition: transform .2s ease, opacity .2s ease; }
 
@@ -169,6 +171,61 @@ a { color: inherit; }
 .breed-detail { min-height: 40px; margin-top: 8px; color: var(--muted); font-size: .73rem; }
 .view-link { margin-top: 13px; color: var(--leaf); font-size: .68rem; font-weight: 850; }
 .visual-disclosure { max-width: 760px; margin: 22px 0 0; color: #7b827e; font-size: .68rem; }
+
+.location-section { position: relative; padding: 115px 0 125px; background: #edf1e7; overflow: hidden; }
+.location-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 8% 12%, rgba(242,184,75,.2), transparent 28%), linear-gradient(135deg, transparent 64%, rgba(28,107,67,.08)); }
+.location-heading { margin-bottom: 48px; }
+.location-card { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr); min-height: 560px; overflow: hidden; background: white; border: 1px solid rgba(11,31,25,.13); border-radius: 10px; box-shadow: var(--shadow); }
+.location-map { position: relative; min-height: 560px; background: #d9e2d7; }
+.location-map iframe { width: 100%; height: 100%; min-height: 560px; border: 0; }
+.map-listing-link { position: absolute; left: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 9px; max-width: calc(100% - 40px); padding: 11px 15px; color: white; background: rgba(7,29,24,.94); border: 1px solid rgba(255,255,255,.26); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.22); font-size: .76rem; font-weight: 850; text-decoration: none; }
+.map-listing-link:hover, .map-listing-link:focus-visible { color: var(--gold); }
+.map-listing-link > span:first-child { color: var(--gold); font-size: 1rem; }
+.location-planner { padding: 46px 42px 42px; }
+.location-kicker { margin: 0 0 7px; color: var(--orange); font-size: .68rem; font-weight: 900; letter-spacing: .16em; }
+.location-planner h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.65rem, 2.6vw, 2.25rem); line-height: 1.08; font-weight: 500; letter-spacing: -.025em; }
+.location-planner address { margin-top: 17px; color: var(--muted); font-size: .95rem; font-style: normal; line-height: 1.55; }
+.location-planner address strong { color: var(--ink); }
+.address-map-link { display: inline-block; margin-top: 11px; color: var(--leaf); font-size: .78rem; font-weight: 850; text-decoration: none; }
+.address-map-link:hover, .address-map-link:focus-visible { color: var(--orange); text-decoration: underline; text-underline-offset: 4px; }
+.route-divider { height: 1px; margin: 30px 0 27px; background: var(--line); }
+.route-intro { margin: 13px 0 20px; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.route-form label { display: block; margin-bottom: 7px; color: #36423d; font-size: .7rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.route-input-row { display: grid; gap: 9px; }
+.route-input-row input { width: 100%; min-height: 50px; padding: 12px 14px; color: var(--ink); background: white; border: 1px solid #cfd8d1; border-radius: 4px; outline: none; }
+.route-input-row input:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px rgba(28,107,67,.12); }
+.route-input-row input.invalid { border-color: var(--red); box-shadow: 0 0 0 3px rgba(185,43,45,.1); }
+.route-input-row .button { width: 100%; }
+.route-status { min-height: 21px; margin: 7px 0 0; color: var(--red); font-size: .75rem; font-weight: 750; }
+.route-note { margin: 12px 0 0; color: #747d78; font-size: .72rem; line-height: 1.5; }
+.weekly-delivery { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px 58px; margin-top: 36px; padding: 43px; overflow: hidden; color: white; background: var(--forest-deep); border-radius: 10px; box-shadow: 0 20px 55px rgba(8,33,24,.17); }
+.weekly-delivery::after { content: ""; position: absolute; width: 300px; height: 300px; right: -130px; top: -150px; border: 1px solid rgba(242,184,75,.24); border-radius: 50%; box-shadow: 0 0 0 55px rgba(242,184,75,.035); pointer-events: none; }
+.weekly-delivery-intro, .delivery-city-grid, .weekly-delivery-footer { position: relative; z-index: 1; }
+.weekly-delivery-intro h3 { max-width: 550px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.02; font-weight: 500; letter-spacing: -.035em; }
+.weekly-delivery-intro > p:not(.location-kicker) { max-width: 540px; margin: 17px 0 0; color: rgba(255,255,255,.65); font-size: .9rem; }
+.load-size-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.load-size-chips span { padding: 8px 11px; color: var(--gold); border: 1px solid rgba(242,184,75,.33); border-radius: 99px; background: rgba(242,184,75,.07); font-size: .72rem; font-weight: 850; }
+.delivery-city-grid { display: grid; gap: 10px; align-content: center; }
+.delivery-city-grid article { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: center; padding: 19px 21px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; }
+.delivery-city-grid article > span { display: grid; place-items: center; width: 50px; height: 50px; color: var(--forest-deep); background: var(--gold); border-radius: 50%; font-size: .68rem; font-weight: 950; letter-spacing: .08em; }
+.delivery-city-grid h4 { margin: 0; font-family: Georgia, serif; font-size: 1.45rem; font-weight: 500; }
+.delivery-city-grid p { margin: 2px 0 0; color: rgba(255,255,255,.58); font-size: .76rem; }
+.weekly-delivery-footer { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.13); }
+.weekly-delivery-footer p { max-width: 670px; margin: 0; color: rgba(255,255,255,.55); font-size: .75rem; line-height: 1.5; }
+.weekly-delivery-footer .button { flex: 0 0 auto; }
+
+.retailer-section { position: relative; padding: 105px 0; color: white; background: linear-gradient(120deg, #143d2e 0%, #0b2b22 58%, #6b4117 100%); overflow: hidden; }
+.retailer-section::before { content: ""; position: absolute; width: 560px; height: 560px; right: -170px; top: -230px; border: 1px solid rgba(242,184,75,.24); border-radius: 50%; box-shadow: 0 0 0 80px rgba(242,184,75,.04), 0 0 0 160px rgba(242,184,75,.025); }
+.retailer-panel { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: 78px; align-items: center; }
+.retailer-intro h2 { max-width: 560px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.65rem, 5vw, 5.1rem); line-height: .98; font-weight: 500; letter-spacing: -.05em; text-wrap: balance; }
+.retailer-intro > p:not(.eyebrow) { max-width: 590px; margin: 24px 0 0; color: rgba(255,255,255,.72); font-size: 1rem; line-height: 1.65; }
+.retailer-button { margin-top: 30px; }
+.retailer-intro > small { display: block; max-width: 570px; margin-top: 16px; color: rgba(255,255,255,.5); font-size: .7rem; line-height: 1.5; }
+.retailer-steps { display: grid; gap: 1px; overflow: hidden; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.13); border-radius: 8px; box-shadow: 0 28px 70px rgba(0,0,0,.22); }
+.retailer-steps article { display: grid; grid-template-columns: 58px 1fr; gap: 19px; align-items: start; padding: 29px 30px; background: rgba(7,29,24,.87); }
+.retailer-steps article > span { display: grid; place-items: center; width: 50px; height: 50px; color: var(--gold); border: 1px solid rgba(242,184,75,.45); border-radius: 50%; font-family: Georgia, serif; font-size: 1rem; }
+.retailer-steps h3 { margin: 0; color: white; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 500; }
+.retailer-steps p { margin: 7px 0 0; color: rgba(255,255,255,.62); font-size: .86rem; line-height: 1.55; }
 
 .quote-section { position: relative; padding: 120px 0 0; color: white; background: var(--forest-deep); overflow: hidden; }
 .quote-section::before { content: ""; position: absolute; inset: 0; opacity: .08; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 54px 54px; }
@@ -269,8 +326,10 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
 
 @media (max-width: 760px) {
   .shell { width: min(100% - 28px, 650px); }
-  .site-header { height: 112px; gap: 8px; padding-inline: 10px; }
-  .site-nav { top: 112px; }
+  .site-header { height: 154px; grid-template-columns: 1fr auto; grid-template-rows: 92px 62px; gap: 0 8px; padding-inline: 12px; }
+  .site-nav { top: 154px; }
+  .brand { grid-column: 1; grid-row: 1; }
+  .menu-toggle { grid-column: 2; grid-row: 1; }
   .brand strong { font-size: .75rem; }
   .brand small { display: none; }
   .header-company-logo { width: clamp(180px, 49vw, 218px); height: 53px; }
@@ -278,12 +337,15 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
   .brand-value em { font-size: .8rem; }
   .brand-value b { font-size: .45rem; }
   .brand-value small { max-width: 190px; font-size: .42rem; letter-spacing: .08em; white-space: nowrap; }
-  .site-header.scrolled { height: 84px; }
-  .site-header.scrolled .site-nav { top: 84px; }
+  .site-header.scrolled { height: 126px; grid-template-rows: 72px 54px; }
+  .site-header.scrolled .site-nav { top: 126px; }
   .site-header.scrolled .header-company-logo { width: 172px; height: 43px; }
-  .language-toggle { padding: 7px 9px; }
+  .site-header.scrolled .brand-value { display: none; }
+  .language-toggle { grid-column: 1 / -1; grid-row: 2; justify-self: center; min-height: 48px; padding: 4px; font-size: .86rem; }
+  .language-toggle .lang-option { padding: 7px 16px; }
   .hero { min-height: 720px; }
-  .hero-video { inset-block-start: 112px; height: calc(100% - 112px); object-position: center; }
+  .hero-video { inset-block-start: 154px; height: calc(100% - 154px); object-position: center; }
+  .site-header.scrolled ~ main .hero-video { inset-block-start: 126px; height: calc(100% - 126px); }
   .hero-shade { background: linear-gradient(90deg, rgba(4,16,13,.7), rgba(4,16,13,.22)), linear-gradient(0deg, rgba(4,16,13,.72), transparent 60%), radial-gradient(circle at 78% 22%, rgba(255,192,74,.32), transparent 38%); }
   .hero h1 { font-size: clamp(3.1rem, 14vw, 5rem); }
   .hero-copy { font-size: .98rem; }
@@ -304,6 +366,14 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
   .motion-card video { min-height: 250px; }
   .motion-copy { padding: 32px 26px; }
   .quote-section { padding-top: 85px; }
+  .location-section { padding: 85px 0 95px; }
+  .location-card { grid-template-columns: 1fr; }
+  .location-map, .location-map iframe { min-height: 360px; }
+  .location-planner { padding: 38px 26px 34px; }
+  .weekly-delivery { grid-template-columns: 1fr; padding: 34px 28px; }
+  .weekly-delivery-footer { grid-column: 1; }
+  .retailer-section { padding: 85px 0; }
+  .retailer-panel { grid-template-columns: 1fr; gap: 45px; }
   .quote-layout { grid-template-columns: 1fr; }
   .quote-form { padding: 28px 20px; }
   .site-footer { align-items: flex-start; flex-direction: column; margin-top: 65px; }
@@ -319,13 +389,22 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
 }
 
 @media (max-width: 500px) {
-  .language-toggle { padding: 7px 9px; }
+  .language-toggle { width: min(292px, calc(100vw - 28px)); justify-content: stretch; }
+  .language-toggle .lang-option { flex: 1; padding-inline: 10px; text-align: center; }
   .menu-toggle { padding-inline: 2px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-trust { grid-template-columns: 1fr; }
   .breed-grid { grid-template-columns: 1fr; }
   .breed-card .breed-detail { min-height: 0; }
   .form-header { align-items: flex-start; flex-direction: column; }
+  .location-map, .location-map iframe { min-height: 300px; }
+  .map-listing-link { left: 12px; bottom: 12px; max-width: calc(100% - 24px); }
+  .location-planner { padding: 32px 20px 28px; }
+  .weekly-delivery { padding: 28px 18px; gap: 34px; }
+  .weekly-delivery-footer { align-items: stretch; flex-direction: column; }
+  .weekly-delivery-footer .button { width: 100%; }
+  .retailer-steps article { grid-template-columns: 48px 1fr; gap: 14px; padding: 23px 18px; }
+  .retailer-steps article > span { width: 43px; height: 43px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -741,7 +820,7 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
       </nav>
 
       <button class="language-toggle" type="button" aria-label="Cambiar a español">
-        <span class="lang-active">EN</span><span aria-hidden="true">/</span><span>ES</span>
+        <span class="lang-option lang-active">English</span><span class="lang-option">Español</span>
       </button>
     </header>
 
@@ -913,6 +992,93 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
         </div>
       </section>
 
+      <section class="location-section" id="location" aria-labelledby="location-title">
+        <div class="shell">
+          <div class="section-heading location-heading reveal">
+            <p class="eyebrow dark" data-i18n="locationEyebrow">Plant location · Weslaco, Texas</p>
+            <h2 id="location-title" data-i18n="locationTitle">Start every delivery at Three Roots.</h2>
+            <p data-i18n="locationIntro">Find the plant, check the driving route to your ranch, store, or delivery point, and then contact our team for product availability and a delivered quote.</p>
+          </div>
+
+          <div class="location-card reveal">
+            <div class="location-map">
+              <iframe src="https://www.google.com/maps?q=26.142907,-97.9596269&amp;z=16&amp;output=embed" title="Three Roots Animal Nutrition plant location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <a class="map-listing-link" href="https://www.google.com/maps/place/THREE+ROOTS+ANIMAL+NUTRITION,+LLC/@26.1428396,-97.9588357,512m/data=!3m1!1e3!4m15!1m8!3m7!1s0x866577a8ddd22727:0x1138c3c447313d7c!2sTHREE+ROOTS+ANIMAL+NUTRITION,+LLC!8m2!3d26.142907!4d-97.9596269!10e5!16s%2Fg%2F11nvgvvnj4!3m5!1s0x866577a8ddd22727:0x1138c3c447313d7c!8m2!3d26.142907!4d-97.9596269!16s%2Fg%2F11nvgvvnj4!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+                <span aria-hidden="true">↗</span><span data-i18n="openMapListing">Open official Google Maps listing</span>
+              </a>
+            </div>
+
+            <div class="location-planner">
+              <p class="location-kicker" data-i18n="plantAddressLabel">THREE ROOTS PLANT</p>
+              <h3>Three Roots Animal Nutrition, LLC</h3>
+              <address><strong>1702 S. International Blvd.</strong><br />Weslaco, TX 78596</address>
+              <a class="address-map-link" href="https://www.google.com/maps/place/THREE+ROOTS+ANIMAL+NUTRITION,+LLC/@26.1428396,-97.9588357,512m/data=!3m1!1e3!4m15!1m8!3m7!1s0x866577a8ddd22727:0x1138c3c447313d7c!2sTHREE+ROOTS+ANIMAL+NUTRITION,+LLC!8m2!3d26.142907!4d-97.9596269!10e5!16s%2Fg%2F11nvgvvnj4!3m5!1s0x866577a8ddd22727:0x1138c3c447313d7c!8m2!3d26.142907!4d-97.9596269!16s%2Fg%2F11nvgvvnj4!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" data-i18n="viewPlantMap">View plant on Google Maps →</a>
+
+              <div class="route-divider"></div>
+              <p class="location-kicker" data-i18n="deliveryRouteLabel">DELIVERY ROUTE PLANNER</p>
+              <h3 data-i18n="deliveryRouteTitle">Calculate the route to your delivery point.</h3>
+              <p class="route-intro" data-i18n="deliveryRouteIntro">Enter a customer address, city, ranch, or business. Google Maps will start the route at the Three Roots plant.</p>
+              <form class="route-form" id="delivery-route-form" novalidate>
+                <label for="delivery-destination" data-i18n="destinationLabel">Delivery destination</label>
+                <div class="route-input-row">
+                  <input id="delivery-destination" name="destination" type="text" autocomplete="street-address" required data-i18n-placeholder="destinationPlaceholder" placeholder="Customer address or city" />
+                  <button class="button button-primary" type="submit" data-i18n="calculateRoute">Calculate route</button>
+                </div>
+                <p class="route-status" role="status" aria-live="polite"></p>
+              </form>
+              <p class="route-note" data-i18n="routeNote">Google Maps provides estimated driving distance and time. Contact Three Roots for actual freight availability and delivered pricing.</p>
+            </div>
+          </div>
+
+          <div class="weekly-delivery reveal" aria-labelledby="weekly-delivery-title">
+            <div class="weekly-delivery-intro">
+              <p class="location-kicker" data-i18n="weeklyDeliveryEyebrow">WEEKLY TEXAS DELIVERY SERVICE</p>
+              <h3 id="weekly-delivery-title" data-i18n="weeklyDeliveryTitle">Pallets and half-loads headed north every week.</h3>
+              <p data-i18n="weeklyDeliveryIntro">Scheduled routes connect the Three Roots plant in Weslaco with customers in three major Texas markets.</p>
+              <div class="load-size-chips" aria-label="Available delivery sizes" data-i18n-aria-label="deliverySizesAria">
+                <span data-i18n="palletOrders">Pallet orders</span><span data-i18n="halfLoads">Half-load shipments</span>
+              </div>
+            </div>
+            <div class="delivery-city-grid">
+              <article><span>HOU</span><div><h4>Houston</h4><p data-i18n="weeklyRoute">Weekly delivery route</p></div></article>
+              <article><span>DAL</span><div><h4>Dallas</h4><p data-i18n="weeklyRoute">Weekly delivery route</p></div></article>
+              <article><span>SAT</span><div><h4>San Antonio</h4><p data-i18n="weeklyRoute">Weekly delivery route</p></div></article>
+            </div>
+            <div class="weekly-delivery-footer">
+              <p data-i18n="deliveryScheduleNote">Route day, available capacity, freight terms, and delivery appointment are confirmed when the order is scheduled.</p>
+              <a class="button button-primary" href="#quote" data-delivery-inquiry data-i18n="deliveryQuoteCta">Request a delivery quote</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="retailer-section" id="retailers" aria-labelledby="retailer-title">
+        <div class="retailer-panel shell reveal">
+          <div class="retailer-intro">
+            <p class="eyebrow" data-i18n="retailerEyebrow">Retail partner opportunity</p>
+            <h2 id="retailer-title" data-i18n="retailerTitle">Bring Three Roots to your local market.</h2>
+            <p data-i18n="retailerIntro">Serve breeders, ranchers, and exhibition-bird enthusiasts with a distinctive line of clean, colorful feeds. Tell us about your store and the customers you serve.</p>
+            <a class="button button-primary retailer-button" href="#quote" data-retailer-inquiry data-i18n="retailerCta">Become a retailer</a>
+            <small data-i18n="retailerNote">Retailer approval, wholesale pricing, order minimums, delivery, and territory availability are confirmed directly by Three Roots.</small>
+          </div>
+
+          <div class="retailer-steps" aria-label="Retailer inquiry steps" data-i18n-aria-label="retailerStepsAria">
+            <article>
+              <span>01</span>
+              <div><h3 data-i18n="retailerStep1Title">Introduce your business</h3><p data-i18n="retailerStep1Text">Share your store name, service area, and the customers or animals you serve.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><h3 data-i18n="retailerStep2Title">Discuss the right product mix</h3><p data-i18n="retailerStep2Text">Review customer demand, available formulas, pickup or delivery needs, and expected volume.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><h3 data-i18n="retailerStep3Title">Request dealer terms</h3><p data-i18n="retailerStep3Text">Connect directly with the Three Roots team for current wholesale pricing and program requirements.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="quote-section" id="quote" aria-labelledby="quote-title">
         <div class="quote-glow" aria-hidden="true"></div>
         <div class="shell quote-layout">
@@ -959,6 +1125,7 @@ dialog::backdrop { background: rgba(2,13,10,.8); backdrop-filter: blur(8px); }
             <label><span data-i18n="interestLabel">I'm interested in</span>
               <select name="interest" id="interest-select">
                 <option value="mad">Mad Rooster</option>
+                <option value="delivery" data-i18n="deliveryOption">Pallet or half-load delivery</option>
                 <option value="dealer" data-i18n="dealerOption">Dealer or bulk pricing</option>
               </select>
             </label>
@@ -1040,6 +1207,12 @@ const copy = {
     motionLabel: "Motion portrait", motionTitle: "Condition you can see.", motionText: "Lean lines, alert posture, clean feathering, and confident presence—visual cues that speak to serious rooster enthusiasts.",
     breedIndioTag: "Exceptional height · Athletic frame", breedAraucanaTag: "Golden plumage · Distinctive profile", breedAseelTag: "Upright stance · Powerful presence", breedShamoTag: "Tall carriage · Glossy feathering", breedSpanishTag: "Lean lines · Mediterranean carriage", breedModernTag: "Long legs · Refined silhouette", breedRedTag: "Alert posture · Sunrise brilliance", breedBrahmaTag: "Full feathering · Calm stature", breedPlymouthTag: "Crisp barring · Balanced build", breedLeghornTag: "Bright white finish · Alert character", viewProfile: "View profile →",
     visualDisclosure: "Client-supplied, breed-inspired rooster visuals illustrate an exhibition standard; they are not documented customer results or a guarantee of outcome. Feed photographs were restored from client-supplied images.",
+    locationEyebrow: "Plant location · Weslaco, Texas", locationTitle: "Start every delivery at Three Roots.", locationIntro: "Find the plant, check the driving route to your ranch, store, or delivery point, and then contact our team for product availability and a delivered quote.",
+    plantAddressLabel: "THREE ROOTS PLANT", openMapListing: "Open official Google Maps listing", viewPlantMap: "View plant on Google Maps →",
+    deliveryRouteLabel: "DELIVERY ROUTE PLANNER", deliveryRouteTitle: "Calculate the route to your delivery point.", deliveryRouteIntro: "Enter a customer address, city, ranch, or business. Google Maps will start the route at the Three Roots plant.", destinationLabel: "Delivery destination", destinationPlaceholder: "Customer address or city", calculateRoute: "Calculate route", routeNote: "Google Maps provides estimated driving distance and time. Contact Three Roots for actual freight availability and delivered pricing.", routeRequired: "Enter a delivery destination to calculate the route.", routeOpened: "Your delivery route is opening in Google Maps.",
+    weeklyDeliveryEyebrow: "WEEKLY TEXAS DELIVERY SERVICE", weeklyDeliveryTitle: "Pallets and half-loads headed north every week.", weeklyDeliveryIntro: "Scheduled routes connect the Three Roots plant in Weslaco with customers in three major Texas markets.", deliverySizesAria: "Available delivery sizes", palletOrders: "Pallet orders", halfLoads: "Half-load shipments", weeklyRoute: "Weekly delivery route", deliveryScheduleNote: "Route day, available capacity, freight terms, and delivery appointment are confirmed when the order is scheduled.", deliveryQuoteCta: "Request a delivery quote", deliveryOption: "Pallet or half-load delivery",
+    retailerEyebrow: "Retail partner opportunity", retailerTitle: "Bring Three Roots to your local market.", retailerIntro: "Serve breeders, ranchers, and exhibition-bird enthusiasts with a distinctive line of clean, colorful feeds. Tell us about your store and the customers you serve.", retailerCta: "Become a retailer", retailerNote: "Retailer approval, wholesale pricing, order minimums, delivery, and territory availability are confirmed directly by Three Roots.", retailerStepsAria: "Retailer inquiry steps",
+    retailerStep1Title: "Introduce your business", retailerStep1Text: "Share your store name, service area, and the customers or animals you serve.", retailerStep2Title: "Discuss the right product mix", retailerStep2Text: "Review customer demand, available formulas, pickup or delivery needs, and expected volume.", retailerStep3Title: "Request dealer terms", retailerStep3Text: "Connect directly with the Three Roots team for current wholesale pricing and program requirements.",
     quoteEyebrow: "Built in Weslaco. Ready to grow.", quoteTitle: "Tell us what your birds need.", quoteIntro: "Request pricing, availability, or the right Three Roots product for your feeding program. This prototype form does not send data until your real contact method is connected.",
     placeholder1Title: "Real feed photography added", placeholder1Text: "Glare-restored close-ups across a 16-formula rooster catalog.",
     placeholder2Title: "Nutrition values added", placeholder2Text: "Supplied protein, fat, fiber, package weight when listed, and ingredients.",
@@ -1085,6 +1258,12 @@ const copy = {
     motionLabel: "Retrato en movimiento", motionTitle: "Condición que se nota.", motionText: "Líneas esbeltas, postura alerta, plumaje limpio y presencia segura—señales visuales para verdaderos aficionados.",
     breedIndioTag: "Altura excepcional · Estructura atlética", breedAraucanaTag: "Plumaje dorado · Perfil distintivo", breedAseelTag: "Porte erguido · Presencia poderosa", breedShamoTag: "Porte alto · Plumaje brillante", breedSpanishTag: "Líneas esbeltas · Porte mediterráneo", breedModernTag: "Patas largas · Silueta refinada", breedRedTag: "Postura alerta · Brillo del amanecer", breedBrahmaTag: "Plumaje abundante · Estatura serena", breedPlymouthTag: "Barrado nítido · Estructura equilibrada", breedLeghornTag: "Blanco brillante · Carácter alerta", viewProfile: "Ver perfil →",
     visualDisclosure: "Las imágenes de gallos proporcionadas por el cliente e inspiradas en razas ilustran un estándar de exhibición; no son resultados documentados de clientes ni garantía de resultados. Las fotos del alimento fueron restauradas de imágenes del cliente.",
+    locationEyebrow: "Ubicación de la planta · Weslaco, Texas", locationTitle: "Cada entrega comienza en Three Roots.", locationIntro: "Encuentre la planta, revise la ruta a su rancho, tienda o punto de entrega y después comuníquese con nuestro equipo para disponibilidad y precio entregado.",
+    plantAddressLabel: "PLANTA THREE ROOTS", openMapListing: "Abrir ubicación oficial en Google Maps", viewPlantMap: "Ver la planta en Google Maps →",
+    deliveryRouteLabel: "PLANIFICADOR DE RUTA DE ENTREGA", deliveryRouteTitle: "Calcule la ruta a su punto de entrega.", deliveryRouteIntro: "Ingrese la dirección, ciudad, rancho o negocio del cliente. Google Maps iniciará la ruta en la planta Three Roots.", destinationLabel: "Destino de entrega", destinationPlaceholder: "Dirección o ciudad del cliente", calculateRoute: "Calcular ruta", routeNote: "Google Maps proporciona distancia y tiempo estimados. Comuníquese con Three Roots para confirmar disponibilidad de flete y precio entregado.", routeRequired: "Ingrese un destino para calcular la ruta.", routeOpened: "Su ruta de entrega se está abriendo en Google Maps.",
+    weeklyDeliveryEyebrow: "SERVICIO SEMANAL DE ENTREGA EN TEXAS", weeklyDeliveryTitle: "Tarimas y medias cargas rumbo al norte cada semana.", weeklyDeliveryIntro: "Rutas programadas conectan la planta Three Roots en Weslaco con clientes en tres importantes mercados de Texas.", deliverySizesAria: "Tamaños de entrega disponibles", palletOrders: "Pedidos por tarima", halfLoads: "Envíos de media carga", weeklyRoute: "Ruta de entrega semanal", deliveryScheduleNote: "El día de ruta, capacidad disponible, términos de flete y cita de entrega se confirman al programar el pedido.", deliveryQuoteCta: "Solicitar precio de entrega", deliveryOption: "Entrega por tarima o media carga",
+    retailerEyebrow: "Oportunidad para distribuidores", retailerTitle: "Lleve Three Roots a su mercado local.", retailerIntro: "Atienda a criadores, rancheros y aficionados a las aves de exhibición con una línea distintiva de alimentos limpios y coloridos. Cuéntenos sobre su tienda y sus clientes.", retailerCta: "Conviértase en distribuidor", retailerNote: "La aprobación, precios de mayoreo, pedidos mínimos, entrega y disponibilidad territorial se confirman directamente con Three Roots.", retailerStepsAria: "Pasos para solicitar ser distribuidor",
+    retailerStep1Title: "Presente su negocio", retailerStep1Text: "Comparta el nombre de su tienda, área de servicio y los clientes o animales que atiende.", retailerStep2Title: "Defina la mezcla de productos", retailerStep2Text: "Revise la demanda, fórmulas disponibles, necesidades de recolección o entrega y volumen esperado.", retailerStep3Title: "Solicite términos de distribuidor", retailerStep3Text: "Comuníquese directamente con Three Roots para precios actuales de mayoreo y requisitos del programa.",
     quoteEyebrow: "Hecho en Weslaco. Listo para crecer.", quoteTitle: "Cuéntenos qué necesitan sus aves.", quoteIntro: "Solicite precio, disponibilidad o el producto Three Roots indicado para su programa. Este formulario no envía datos hasta conectar su contacto real.",
     placeholder1Title: "Fotografías reales agregadas", placeholder1Text: "Acercamientos sin reflejos en un catálogo de 16 fórmulas para gallos.",
     placeholder2Title: "Valores nutricionales agregados", placeholder2Text: "Proteína, grasa, fibra, peso cuando está indicado e ingredientes proporcionados.",
@@ -1301,7 +1480,11 @@ function renderInterestOptions() {
   dealer.value = "dealer";
   dealer.textContent = copy[language].dealerOption;
   select.append(dealer);
-  select.value = productOrder.includes(current) || current === "allstock" || current === "dealer" ? current : activeProduct;
+  const delivery = document.createElement("option");
+  delivery.value = "delivery";
+  delivery.textContent = copy[language].deliveryOption;
+  select.append(delivery);
+  select.value = productOrder.includes(current) || current === "allstock" || current === "dealer" || current === "delivery" ? current : activeProduct;
 }
 
 function setLanguage(lang) {
@@ -1319,7 +1502,7 @@ function setLanguage(lang) {
     el.setAttribute("aria-label", copy[lang][el.dataset.i18nAriaLabel] || "");
   });
   const toggle = document.querySelector(".language-toggle");
-  toggle.innerHTML = lang === "en" ? '<span class="lang-active">EN</span><span aria-hidden="true">/</span><span>ES</span>' : '<span>EN</span><span aria-hidden="true">/</span><span class="lang-active">ES</span>';
+  toggle.innerHTML = lang === "en" ? '<span class="lang-option lang-active">English</span><span class="lang-option">Español</span>' : '<span class="lang-option">English</span><span class="lang-option lang-active">Español</span>';
   toggle.setAttribute("aria-label", lang === "en" ? "Cambiar a español" : "Switch to English");
   renderProductTabs();
   renderInterestOptions();
@@ -1436,7 +1619,46 @@ document.querySelector(".spec-close").addEventListener("click", () => specDialog
 
 document.querySelectorAll('.placeholder-contact a[href="#"]').forEach((link) => link.addEventListener("click", (event) => event.preventDefault()));
 
+const routeForm = document.getElementById("delivery-route-form");
+const routeDestination = document.getElementById("delivery-destination");
+const routeStatus = routeForm.querySelector(".route-status");
+routeDestination.addEventListener("input", () => {
+  routeDestination.classList.remove("invalid");
+  routeStatus.textContent = "";
+});
+routeForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const destination = routeDestination.value.trim();
+  if (!destination) {
+    routeDestination.classList.add("invalid");
+    routeStatus.textContent = copy[language].routeRequired;
+    routeDestination.focus();
+    return;
+  }
+  const directions = new URL("https://www.google.com/maps/dir/");
+  directions.searchParams.set("api", "1");
+  directions.searchParams.set("origin", "Three Roots Animal Nutrition, LLC, 1702 S International Blvd, Weslaco, TX 78596");
+  directions.searchParams.set("destination", destination);
+  directions.searchParams.set("travelmode", "driving");
+  routeStatus.textContent = copy[language].routeOpened;
+  const mapLink = document.createElement("a");
+  mapLink.href = directions.toString();
+  mapLink.target = "_blank";
+  mapLink.rel = "noopener";
+  mapLink.click();
+});
+
 const quoteForm = document.querySelector(".quote-form");
+document.querySelectorAll("[data-retailer-inquiry]").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("interest-select").value = "dealer";
+  });
+});
+document.querySelectorAll("[data-delivery-inquiry]").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("interest-select").value = "delivery";
+  });
+});
 quoteForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = quoteForm.elements.name;
